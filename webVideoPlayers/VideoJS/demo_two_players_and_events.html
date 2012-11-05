@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video.js | HTML5 Video Player</title>
+
+  <!-- Chang URLs to wherever Video.js files will be hosted -->
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="video.js"></script>
+<script type="text/javascript" src="jquery-1.8.1.js"></script>
+  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+  <script>
+    _V_.options.flash.swf = "video-js.swf";
+	 var sources = [
+		{type:'video/mp4', src:'1a.mp4'},
+		{type:'video/webm', src:'1a.webm'},
+		{type:'video/ogg', src:'1a.ogg'}
+	];
+	
+   function init(player) {
+	var events = ['loadstart', 'loadedmetadata', 'loadeddata', 'loadedalldata', 'play', 'pause', 'ended', 'durationchange', 'resize', 'volumechange', 'error'];
+	var playerId = '#'+player;
+	var playerElement = 'vjs'+player;
+	var element = $(playerId);
+	element.append('<video class="vjs" id="'+playerElement+'" width="640" height="264" ></video');
+	var v_elem = $('#'+playerElement);
+
+	var player = _V_(v_elem.get(0));
+	player.options.preload="auto";	
+
+	for(var i=0; i<events.length; i+=1) {
+		player.addEvent(events[i], function(j) { 
+			return function () {
+				console.log(events[j] + ' ' + player.duration());
+			};
+		}(i));
+	}
+	player.ready(function () {
+		console.log('ready' + ' ' + player.duration());
+	});
+	player.src(sources);
+	player.currentTime(10);
+	return player;
+   };
+
+   initialize = function() {
+    players = [];
+    players[1] = init('v1');
+    players[2] = init('v2');
+   }
+   
+   load = function(i) {
+	players[i].play();
+   };   
+  </script>
+
+
+</head>
+<body onLoad="initialize()">
+
+	<div id="v1"></div>
+  <button onClick="load(1)">LOAD!</button>
+	<div id="v2"></div>
+
+  <button onClick="load(2)">LOAD!</button>
+</body>
+</html>
