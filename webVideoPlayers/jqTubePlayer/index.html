@@ -1,0 +1,868 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>jQuery YouTube TubePlayer Plugin - By Nirvana Tikku</title>
+<meta name="ttw" content="6adqhs0" />
+<meta http-equiv="Content-Type" content="text/html" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="google-site-verification" content="scHf2K9UgwcPYAiMAz8gCAtIu8FqyezLiTigGDRs0bs" />
+<meta property="fb:admins" content="1704113" />
+
+
+<meta property="og:site_name" content="Tikku.com - Nirvana Tikku's Projects"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="http://tikku.com/images/tikku/tikku_com_img.png"/>
+
+<meta property="og:url" content="http://www.tikku.com/jquery-youtube-tubeplayer-plugin"/>
+
+
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link media="screen" type="text/css" rel="stylesheet" href="tikku.css" />
+	<script type="text/javascript" src="tikku.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Play&subset=latin' rel='stylesheet' type='text/css'>
+</head>
+<body target="jquery-youtube-tubeplayer-plugin" class="jquery-youtube-tubeplayer-plugin" analyticsID="UA-8984274-1">
+<div class="page">
+<div class="page-container page-adjust">
+	<div class="grid grid-adjust" style="width:95%">
+		<div class="col_24 top">
+			<div class="nav">
+	<div class="main-title awesome">
+		<a href="/" class="home_link">
+			TIKKU.COM 
+		</a>
+		
+		<span class="crumbs" style="width:auto;float:right;margin-top:15px;max-width:100%;">
+										    		    		 <a href="/home?linkId=bc">     			Home Page
+    		</a> 									    		 &nbsp; &raquo; &nbsp;     		 <a href="/jquery-plugins?linkId=bc">     			jQuery Plugins
+    		</a> 									    		 &nbsp; &raquo; &nbsp;     		    			TubePlayer Plugin
+    							</span>
+	</div>
+</div>
+		</div>
+		<div class="col_24 awesome awesome-grey middle" style="float:left;">
+			<h1 style="top:-5px;font-size:2em;">jQuery YouTube TubePlayer Plugin 
+	<sup class="version">v1.1.0 / Oct 1, 2012</sup> 
+	<div class="html5-logo"><div class="logo">&nbsp;</div></div> 
+	<img style="position:relative;top:9px;left:4px;" src='/images/yt_powered_by_white_resized.png' width="54" height="38"/> 
+</h1>
+<div style="position:absolute; right:-10px; top:23px;">
+	<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ntikku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.tikku.com%2Fjquery-youtube-tubeplayer-plugin&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=trebuchet+ms&amp;colorscheme=dark&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:125px; height:21px;" allowTransparency="true"></iframe></div>
+
+
+<div class="col_16">
+	<div class="video-player">
+		<div id="player"></div>
+	</div>
+</div>
+	
+<style>
+	.html5-logo { background:rgba(250,250,250,0.6); width:32px; height:32px; display:inline-block;
+		padding:3px;
+		-webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;
+	}
+	.html5-logo .logo {
+		width:32px; height:32px; background:url('/images/HTML5_Logo_32.png') no-repeat; display:inline-block; padding:0px;
+	}
+	.player-action {
+		width:auto;
+		height:auto;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+		border-radius:3px;
+		margin-bottom:10px;
+		text-align:center;
+		padding:7px;
+		background-color:#123;
+		background: -moz-linear-gradient(center top , #234, #123) repeat scroll 0 0 transparent;
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#234), to(#123));
+			
+	}
+	.awesome .events-examples a { color:#def; }
+	.player-action .event { color:yellow; }
+	.player-action:hover { 
+		background-color:#012;
+		background: -moz-linear-gradient(center top, #234, #012) repeat scroll 0 0 transparent; 
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#234), to(#012));
+		-moz-box-shadow: 0px 0px 2px #111;
+		-webkit-box-shadow: 0px 0px 2px #111;
+	}
+	.player-action:active,
+	.player-action:focus {
+		background-color:#234;
+		background: -moz-linear-gradient(center top, #012, #123) repeat scroll 0 0 transparent; 
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#012), to(#123));
+	}
+	
+</style>
+
+<div class="col_8 last">
+	<div class="events-examples">
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('play');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'play'</span>); </div>
+		</a>
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('pause');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'pause'</span>); </div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('stop');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'stop'</span>); </div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('mute');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'mute'</span>); </div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('volume', 25);">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'volume'</span>, 25); </div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player-volume').html(jQuery('#player').tubeplayer('volume'));">
+			<div class='player-action'> 
+				jQuery('#player').tubeplayer(<span class='event'>'volume'</span>); = 
+				<span id='player-volume'>?</span>
+			</div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('unmute');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'unmute'</span>); </div>
+		</a>
+		<a href="javascript:void(0);" onClick="showData(jQuery('#player').tubeplayer('data'));">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'data'</span>); </div>
+		</a>
+		<hr/>
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('play', '0VhthgyE47E');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'play'</span>, '0VhthgyE47E'); </div>
+		</a> 
+		<hr/>
+		<a href="javascript:void(0);" onClick="initPlayer();">
+			<div class='player-action'> jQuery('#player').tubeplayer(); </div>
+		</a> 
+		<a href="javascript:void(0);" onClick="jQuery('#player').tubeplayer('destroy');">
+			<div class='player-action'> jQuery('#player').tubeplayer(<span class='event'>'destroy'</span>); </div>
+		</a> 
+	</div>
+</div>
+
+<script type="text/javascript">
+function initPlayer(){
+	jQuery("#player").tubeplayer({
+		width: 600,
+		height: 450,
+		initialVideo: '0VhthgyE47E',
+		onPlayerPlaying: function() {
+			console.log('playeing');
+		},
+		onPlayerUnstarted: function () {
+			console.log('unstarted');
+		},
+		onPlayterCued: function () {
+			console.log('cued');
+		},
+		onPlayerPaused: function () {
+			console.log('paused');
+		},
+		onPlayerBuffering: function () {
+			console.log('buffering');
+		}
+
+	});
+};
+jQuery.tubeplayer.defaults.afterReady = function(){
+	//jQuery("#player").tubeplayer("cue", " ");
+};
+initPlayer();
+function showData(data){
+	var html = "bytesLoaded : " + data.bytesLoaded;
+	html += " / bytesTotal : " + data.bytesTotal + "\n";
+	html += "currentTime : " + data.currentTime;
+	html += " / duration : " + data.duration + "\n";
+	html += "startBytes : " + data.startBytes + "\n";
+	html += "state : " + data.state + "\n";
+	html += "quality : " + data.availableQualityLevels.join(",") + "\n";
+	html += "url : " + data.videoURL + "\n";
+	html += "videoID : " + data.videoID;
+	alert(html);
+}
+</script>
+
+<br/>
+
+
+
+
+
+
+<div class="col_24" style="min-height:620px;">
+		
+	
+	
+	
+	
+	
+	
+	<div name="jquery_tubeplayer_tabs" id="tubeplayer_tutorial" class="ui-basic-tabs " ui_tabs_type="basic" >
+		<ul>
+			<li class="selected" tab="tubeplayer_tutorial_1">
+							<a href="#tubeplayer_tutorial_1" onClick="log.ga.event('tab', 'select', 'tubeplayer_tutorial : tab-1');"><h3>&raquo; Getting Started</h3></a>
+		</li>
+			<li  tab="tubeplayer_tutorial_2">
+							<a href="#tubeplayer_tutorial_2" onClick="log.ga.event('tab', 'select', 'tubeplayer_tutorial : tab-2');"><h3>&raquo; Quick Start</h3></a>
+		</li>
+			<li  tab="tubeplayer_tutorial_3">
+							<a href="#tubeplayer_tutorial_3" onClick="log.ga.event('tab', 'select', 'tubeplayer_tutorial : tab-3');"><h3>&raquo; API Reference</h3></a>
+		</li>
+			<li  tab="tubeplayer_tutorial_4">
+							<a href="#tubeplayer_tutorial_4" onClick="log.ga.event('tab', 'select', 'tubeplayer_tutorial : tab-4');"><h3>&raquo; Download</h3></a>
+		</li>
+			<li  tab="tubeplayer_tutorial_5">
+							<a href="#tubeplayer_tutorial_5" onClick="log.ga.event('tab', 'select', 'tubeplayer_tutorial : tab-5');"><h3>&raquo; FAQs</h3></a>
+		</li>
+		</ul>
+			<div name="tubeplayer_tutorial_1" class="  ui-tab ui-tabs">
+				<style>
+	.standard li { display:block; clear:both; }
+</style>
+<div class="col_24">
+	<h2>Update: HTML5 Support!</h2>
+	<em style="position:absolute; top:20px; right:0px;">13th Feb 2011</em>
+	<p>
+		<img src="/images/HTML5_Logo_64.png" height="64px" width="64px" style="float:left;"/> 
+		HTML5 goodness!  Last year, YouTube <a href="http://apiblog.youtube.com/2010/06/flash-and-html5-tag.html">introduced an HTML5 based implementation</a>
+		of their embedded player.  With the proliferation of mobile devices, the increasing popularity of Apple's iPad,
+		and Apple's stringent requirements around the use of Flash, access to control the HTML5 player has been in great demand.  This implementation was first provided for simple embeds and offered as a trial-service on YouTube itself.  
+	</p>
+	<p>
+		Just last month, however, <a href="http://apiblog.youtube.com/2011/01/introducing-javascript-player-api-for.html">YouTube announced developer access to this HTML5 version of the player</a>. 
+		The API was of course created in line with what they had set out for their original <a href="http://code.google.com/apis/youtube/js_api_reference.html">JavaScript Player API</a>, which meant that the 
+		general pattern and structure that the TubePlayer plugin was maintained; the only difference was around the instantiation of the player itself.  
+	</p>
+	<p>
+		So, what's so great about the YouTube <a href="http://en.wikipedia.org/wiki/HTML5">HTML5 player</a>, anyway? Well, basically <strong>iPad/iPhone support</strong>, enhancemened performance, optimized resource usage, 
+		<a href="http://dev.w3.org/html5/spec/spec.html">conforming to standards</a> and end user experience. Check this great article <a href="http://diveintohtml5.org/video.html">on the advantages of the standards based video implementation in HTML5</a>.
+		While I am excited and enthused about providing a plugin that provides iOS (iPad/iPhone) support, i'm disappointed to have to tell you that with the player <a href="http://http://code.google.com/apis/youtube/iframe_api_reference.html">still in labs mode</a> the
+		player still has some kinks.  In addition to the occasional bug, mobile development adds additional complexities.  An example is with the <a href="http://developer.apple.com/library/safari/#documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html">potential fees involved in streaming video, Apple dictates that the user must 
+		initiate playback, essentially removing possibilities for auto-playing videos in a playlists.</a> For more information, see <a href="http://code.google.com/apis/youtube/forum/discussion.html?place=topic/youtube-api-gdata/Fr39edfAKgs/discussion">this forum thread</a>.
+	</P>
+	<p>
+		The updated TubePlayer plugin takes advantage of HTML5 where possible.  A new attribute <strong>iframed</strong> can be set to true or false depending on whether the iframe player should be prioritized. SWFObject is not strictly a requirement anymore, however TubePlayer has been
+		created such that if the browser does not support HTML5 video, the flash player will be used instead.  Anyone upgrading from previous versions of the TubePlayer plugin, all you have to do is replace
+		your jQuery.tubeplayer.js file with the updated code. There is no need to worry about your implementation, as <em> everything is backwards compatible</em>.
+	</P>
+		<h2>Overview</h2>
+	<p>
+		YouTube broke <a target="_blank" href="http://mashable.com/2010/05/17/youtube-2-billion-views/">2 billion views</a> a day just a couple of months back. I have played around with the API for two and a half years in various capacities, but I always stopped at the flash level of the chromeless player. Even though I managed to work through the AS3 implementation, I didn't want to have to go through the pain of designing an interface for a player - I really wanted to play with the API itself.
+	</p>
+	<p>
+		I recently took a look at the updates to the YouTube API, and I was excited to see that the embeddable player is now controllable through the JavaScript API. As a result I <a href="youtube-quickplay" target="_blank" >threw it into an example</a> that I created showcasing my other plugin, the <a target="_blank" href="jquery-radmenu-plugin">jQuery Radmenu plugin</a>. I wanted to have access to the player state change (so I could tell when the player had finished playing the active video) and as a result was capable of creating a sort of 'YouTube wheel' that just continuously plays.
+	</p>
+	<p>
+		All of my implementations of the YouTube API have been around the creation of playlists and/or stringing specific videos outside of the standard YouTube playlist implementation. The player is the integral part since you need to have a hook when the player <strong>has ended</strong> to queue up the next video. 
+	</p>
+	<p>
+		Basically this jQuery plugin implements <a target="_blank" href="http://code.google.com/apis/youtube/js_api_reference.html#onYouTubePlayerReady">the YouTube Player API</a> pretty much to spec. I've omitted some functions but believe I have captured most of the functionality a developer will need to implement a youtube player. The kind of things that this plugin allows the developer to simply get done are --
+		<ol class='standard'>
+			<li>Play: the player & a specific video</li>
+			<li>Pause the player</li>
+			<li>Stop the player</li>
+			<li>Seek to a particular point within a video</li>
+			<li>Mute and Unmute the player & learn if the player is muted</li>
+			<li>Get and set the volume of the player</li>
+			<li>Get and set the video quality</li>
+			<li>Destroy the player</li>
+			<li>
+				Friendly functions for player state changes -- <br/>
+				<ol>
+					<li>onPlayerUnstarted</li>
+					<li>onPlayerEnded</li>
+					<li>onPlayerPlaying</li>
+					<li>onPlayerPaused</li>
+					<li>onPlayerBuffering</li>
+					<li>onPlayerCued</li>
+				</ol>
+			</li>
+		</ol>
+	</p>
+	<p>
+		If you have any comments, suggestions, or need/want help implementing this plugin - please feel free to email me @ 
+		<a href="mailto:ntikku@gmail.com">ntikku@gmail.com</a> or <a href="http://www.twitter.com/ntikku">tweet 
+		me @ntikku</a> . Also, if you do end up implementing this plugin, I would greatly appreciate it if you 
+		would send a link over - I'd love to see it in action!
+	</p>
+	<p>
+		Thanks, <br/>
+		Nirvana Tikku
+	</p>
+</div>
+
+		</div>
+			<div name="tubeplayer_tutorial_2" class=" never ui-tab ui-tabs">
+					
+				<h2>Quick Start Guide</h2>
+		<p>
+			<div class="css_bullet">&nbsp;</div>
+			<strong class='header'>1&nbsp;&nbsp;&nbsp;&nbsp;
+			Create a container for your player</strong><br/>
+			<br/>
+			<pre class="code indent">
+&lt;html&gt;	
+&lt;body&gt;
+	&lt;div id=<span class='string'>'youtube-player-container'</span>&gt; &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+			</pre>
+			
+			<br/>
+						<div class="css_bullet">&nbsp;</div>
+			<strong class='header'>2&nbsp;&nbsp;&nbsp;&nbsp;
+			Include the JavaScript</strong>
+			<br/><br/>
+			<pre class="code indent">
+&lt;script type='text/javascript' src='{your_path_to}/<span class='string'>jQuery.tubeplayer.js'</span>&gt;&lt;/script&gt;
+			</pre>
+			
+			<br/>
+						<div class="css_bullet">&nbsp;</div>
+			<strong class='header'>3&nbsp;&nbsp;&nbsp;&nbsp;
+			Initialize the YouTube Player in JavaScript</strong>
+			<br/><br/>
+			<pre class="code indent">
+jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer({
+	width: <span class='num'>600</span>, <span class='comments'>// the width of the player</span>
+	height: <span class='num'>450</span>, <span class='comments'>// the height of the player</span>
+	allowFullScreen: <span class='string'>"true"</span>, <span class='comments'>// true by default, allow user to go full screen</span>
+	initialVideo: <span class='string'>"DkoeNLuMbcI"</span>, <span class='comments'>// the video that is loaded into the player</span>
+	preferredQuality: <span class='string'>"default"</span>,<span class='comments'>// preferred quality: default, small, medium, large, hd720</span>
+	onPlay: <span class='fn'>function</span>(id){}, <span class='comments'>// after the play method is called</span>
+	onPause: <span class='fn'>function</span>(){}, <span class='comments'>// after the pause method is called</span>
+	onStop: <span class='fn'>function</span>(){}, <span class='comments'>// after the player is stopped</span>
+	onSeek: <span class='fn'>function</span>(time){}, <span class='comments'>// after the video has been seeked to a defined point</span>
+	onMute: <span class='fn'>function</span>(){}, <span class='comments'>// after the player is muted</span>
+	onUnMute: <span class='fn'>function</span>(){} <span class='comments'>// after the player is unmuted</span>
+});
+			</pre>
+					<br/>
+						<div class="css_bullet">&nbsp;</div>
+			<strong class='header'>4&nbsp;&nbsp;&nbsp;&nbsp;
+			Hook the tubeplayer's events to any elements you want to use as triggers</strong>
+			<br/><br/>
+			<pre class="code indent">
+&lt;a href="#" onClick='jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer(<span class="string">"play"</span>)'&gt; 
+	Play video in player
+&lt;/a&gt;
+&lt;a href="#" onClick='jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer(<span class="string">"pause"</span>)'&gt; 
+	Pause player 
+&lt;/a&gt;
+&lt;a href="#" onClick='jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer(<span class="string">"stop"</span>)'&gt; 
+	Stop player 
+&lt;/a&gt;
+&lt;a href="#" onClick='jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer(<span class="string">"mute"</span>)'&gt; 	
+	Mute player 
+&lt;/a&gt;
+&lt;a href="#" onClick='jQuery(<span class='string'>"#youtube-player-container"</span>).tubeplayer(<span class="string">"unmute"</span>)'&gt; 
+	Unmute player
+&lt;/a&gt;
+			</pre>
+
+		</p>
+
+		</div>
+			<div name="tubeplayer_tutorial_3" class=" never ui-tab ui-tabs">
+				<h2>Options / Defaults</h2>
+
+<div>In addition to this page, be sure to check out the <a target="_blank" href="http://code.google.com/apis/youtube/js_api_reference.html#Overview">YouTube JavaScript API Reference</a> if you aren't familiar with it.</div>
+<br/><br/>
+The plugin's defaults are --
+<br/><br/>
+<pre class="code indent">
+<span class='fn'>var</span> defaults = {
+	<span class='comments'>// Plugin init params</span>
+	width: <span class='num'>425</span>, <span class='comments'>// the width of the player</span>
+	height: <span class='num'>355</span>, <span class='comments'>// the height of the player</span>
+	allowFullScreen: <span class='string'>"true"</span>, <span class='comments'>// true by default, allow user to go full screen</span>
+	initialVideo: <span class='string'>"DkoeNLuMbcI"</span>, <span class='comments'>// the video that is loaded into the player</span>
+	start: <span class='num'>0</span>, <span class='comments'></span>
+	preferredQuality: <span class='string'>"default"</span>,<span class='comments'>// preferred quality: default, small, medium, large, hd720</span>
+	showControls: <span class='num'>1</span>, <span class='comments'>// whether the player should have the controls visible, 0 or 1</span>
+	showRelated: <span class='num'>0</span>, <span class='comments'>// show the related videos when the player ends, 0 or 1 </span>
+	autoPlay: <span class='bool'>false</span>, <span class='comments'>// whether the player should autoplay the video, 0 or 1</span>
+	autoHide: <span class='bool'>true</span>, <span class='comments'></span>
+	theme: <span class='string'>"dark"</span>, <span class='comments'>// possible options: "dark" or "light"</span>
+	color: <span class='string'>"red"</span>, <span class='comments'>// possible options: "red" or "white"</span>
+	showinfo: <span class='bool'>false</span>, <span class='comments'>// if you want the player to include details about the video</span>
+	modestbranding: <span class='bool'>true</span>, <span class='comments'>// specify to include/exclude the YouTube watermark</span>
+	<span class='comments'>// the location to the swfobject import for the flash player, default to Google's CDN</span>
+	wmode: <span class='string'>"transparent"</span>, <span class='comments'>// note: transparent maintains z-index, but disables GPU acceleration</span>
+	swfobjectURL: <span class='string'>"http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"</span>,
+	loadSWFObject: <span class='bool'>true</span>, <span class='comments'>// if you include swfobject, set to false</span>
+	<span class='comments'>// HTML5 specific attrs</span>
+	iframed: <span class='bool'>true</span>, <span class='comments'>// iframed can be: true, false; if true, but not supported, degrades to flash</span>
+	<span class='comments'>// Player Trigger Specific Functionality</span>
+	onPlay: <span class='fn'>function</span>(id){}, <span class='comments'>// after the play method is called</span>
+	onPause: <span class='fn'>function</span>(){}, <span class='comments'>// after the pause method is called</span>
+	onStop: <span class='fn'>function</span>(){}, <span class='comments'>// after the player is stopped</span>
+	onSeek: <span class='fn'>function</span>(time){}, <span class='comments'>// after the video has been seeked to a defined point</span>
+	onMute: <span class='fn'>function</span>(){}, <span class='comments'>// after the player is muted</span>
+	onUnMute: <span class='fn'>function</span>(){}, <span class='comments'>// after the player is unmuted</span>
+	<span class='comments'>// Player State Change Specific Functionality</span>
+	onPlayerUnstarted: <span class='fn'>function</span>(){}, <span class='comments'>// when the player returns a state of unstarted</span>
+	onPlayerEnded: <span class='fn'>function</span>(){}, <span class='comments'>// when the player returns a state of ended</span>
+	onPlayerPlaying: <span class='fn'>function</span>(){}, <span class='comments'>//when the player returns a state of playing</span>
+	onPlayerPaused: <span class='fn'>function</span>(){}, <span class='comments'>// when the player returns a state of paused</span>
+	onPlayerBuffering: <span class='fn'>function</span>(){}, <span class='comments'>// when the player returns a state of buffering</span>
+	onPlayerCued: <span class='fn'>function</span>(){}, <span class='comments'>// when the player returns a state of cued</span>
+	onQualityChange: <span class='fn'>function</span>(quality){}, <span class='comments'>// a function callback for when the quality of a video is determined</span>
+	<span class='comments'>// Error State Specific Functionality</span>
+	onErrorNotFound: <span class='fn'>function</span>(){}, <span class='comments'>// if a video cant be found</span>
+	onErrorNotEmbeddable: <span class='fn'>function</span>(){}, <span class='comments'>// if a video isnt embeddable</span>
+	onErrorInvalidParameter: <span class='fn'>function</span>(){} <span class='comments'>// if we've got an invalid param</span>
+});
+</pre>
+<br/>
+<div class="col_24">
+	<h4>width</h4>
+	<div class='col_24'>Assign the width of the player. By default this is at 425px.</div>
+	<h4>height</h4>
+	<div class='col_24'>Assign the height of the player. By default this is at 355px.</div>
+	<h4>allowFullScreen</h4>
+	<div class='col_24'>True or False, depending on if you want to enable the full screen button.</div>
+	<h4>initialVideo</h4>
+	<div class='col_24'>Assign a YouTube video id for the initial video to be loaded upon player initialization.</div>
+	<h4>preferredQuality</h4>
+	<div class='col_24'>Options: "default", "small", "medium", "large", "hd720". "default" is the plugin's default value.</div>
+	<h4>showControls</h4>
+	<div class='col_24'>This attribute will enable controls in the player, and is only available in the case of the iframe player. Values can be true or false. </div>
+	<h4>showRelated</h4>
+	<div class='col_24'>Whether the player should load related videos once playback of the initial video starts  Values can be true or false. </div>
+	<h4>autoPlay</h4>
+	<div class='col_24'>This attribute will autoplay upon load, and is only available in the case of the iframe player. Values can be true or false. </div>
+	<h4>autoHide</h4>
+	<div class='col_24'>Whether the video controls will automatically hide after a video begins playing Values can be true or false.</div>
+	<h4>theme</h4>
+	<div class='col_24'>Sets the color of the overall player. Values can be "dark" or "light". Default is "dark" as per YouTube's spec.</div>
+	<h4>color</h4>
+	<div class='col_24'>Sets the color of the progress bar. Values can be "red" or "white". Default is "red" as per YouTube's spec. </div>
+	<h4>showinfo</h4>
+	<div class='col_24'>Whether or not to show the loaded videos details. Values can be true or false. </div>
+	<h4>modestbranding</h4>
+	<div class='col_24'>This parameter can be used to include/exclude the YouTube watermark. Values can be true or false. </div>
+	<h4>swfobjectURL</h4>
+	<div class='col_24'>The swfobject dependency is for the flash based implementation of the player. By default the url
+		is specified to the Google CDN location for swfobject version 2.2. You can override this if you want to use a 
+		local version.</div>
+	<h4>loadSWFObject</h4>
+	<div class='col_24'>If you want to include the swfobject in a minified file, or would rather that the TubePlayer plugin not load the swfobject, set this to false. If not, if using the flash player, the player will only be initialized after the script has been imported.</div>
+	<h4>iframed</h4>
+	<div class='col_24'>This attribute is a boolean, true/false.  If true, TubePlayer will prioritize the HTML5 implementation of TubePlayer (provided it's available), over the flash based player. If false, only the flash player will be used.</div>
+		<br/>
+	<h3>Trigger Events</h3>
+	<h4>onPlay</h4>
+	<div class='col_24'>After the player triggers a play event, the onPlay method is called and passed the id that was played.
+	This can come in handy in situations where you may want to track / utilize the play event and possibly
+	hook in your analytics.</div>
+	<h4>onPause</h4>
+	<div class='col_24'>Similar to onPlay, onPause is called <em>after</em> the player is paused.</div>
+	<h4>onStop</h4>
+	<div class='col_24'>Ditto, onStop is <em>after</em> the player has been stopped.</div>
+	<h4>onSeek</h4>
+	<div class='col_24'>Convenience method while seeking. This method is passed the seekTime. Most often used by a slider or some similar interface.</div>
+	<h4>onMute</h4>
+	<div class='col_24'>For whatever reason if you want to do something when the player is muted.</div>
+	<h4>onUnMute</h4>
+	<div class='col_24'>Ditto, if you want to do something when the player is unmuted.</div>
+		<h3>Player Events</h3>
+	<h4>onPlayerUnstarted</h4>
+	<div class='col_24'>This method is called when the state of the player is cued, but has not been started. </div>
+	<h4>onPlayerEnded</h4>
+	<div class='col_24'>This method gets triggered when the video has finished playing.</div>
+	<h4>onPlayerPlaying</h4>
+	<div class='col_24'>As soon as the player starts playing, this method is called right after.</div>
+	<h4>onPlayerPaused</h4>
+	<div class='col_24'>When the state of the player is paused this method is called.</div>
+	<h4>onPlayerBuffering</h4>
+	<div class='col_24'>Whilst the player is buffering, this method is called.</div>
+	<h4>onPlayerCued</h4>
+	<div class='col_24'>After the player is cued up with a video.</div>
+		<h4>onQualityChange</h4>
+	<div class='col_24'>Whenever the video quality is determined, this callback is invoked.</div>
+		<h3>Errors</h3>
+	<h4>onErrorNotFound</h4>
+	<div class='col_24'>If the video is not found, this method will get called.</div>
+	<h4>onErrorNotEmbeddable</h4>
+	<div class='col_24'>If the video you have entered is not embeddable, this method will get called.</div>
+	<h4>onErrorInvalidParameter</h4>
+	<div class='col_24'>If the player wasn't init'd properly, possibly due to a bad VideoID</div>
+</div>
+
+<br style="clear:both;"/>
+
+<h2>Events</h2>
+There are a set of events that are bound to TubePlayer upon initialization. These events can be called directly by passing in a string argument, the event,
+to trigger the event on the menu. Some events may require arguments, in which case pass the arguments as well. Note: Unless specified, all triggers return the player
+meaning you can continue to utilize chaining.
+<h4>Cue</h4>
+<div class="col_15">
+	Cue a video specified by videoId. The player uses the quality setting defined upon initialization to cue the video.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"cue"</span>, <span class='string'>"videoId"</span>);</pre>
+</div>
+<h4>Play</h4>
+<div class="col_15">
+	Play has three different implementations. The first, is to play the active video, if you do not specify a parameter.
+	<br/><br/>If you specify a parameter, and that parameter is a string, then the player will cue and play the specified video.
+	<br/><br/>Lastly, if you specify a parameter, and that parameter is an OBJECT, you will have the ability to pass in the id 
+	and the start time -- {id: "<videoid>",time:"<start time>"}. 
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"play"</span>);</pre>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"play"</span>, <span class='string'>"DkoeNLuMbcI"</span>);</pre>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"play"</span>, {
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <span class='string'>"DkoeNLuMbcI"</span>,
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time: <span class='num'>20</span>
+	});</pre>
+</div>
+<h4>Pause</h4>
+<div class="col_15">
+	Simply pauses the player.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"pause"</span>);</pre>
+</div>
+<h4>Stop</h4>
+<div class="col_15">
+	Stops the player from loading.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"stop"</span>);</pre>
+</div>
+<h4>Seek</h4>
+<div class="col_15">
+	Specify a time to seekTo and this method will skip the player to the specified time.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"seek"</span>, <span class='num'>100</span>);</pre>
+</div>
+
+<h4>Mute</h4>
+<div class="col_15">
+	Mute the player.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"mute"</span>);</pre>
+</div>
+
+<h4>Unmute</h4>
+<div class="col_15">
+	Unmute the player. Currently, potentially due to an API bug, I set the value of the volume to 100, since even though the player says that it has been unmuted, it does not play.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"unmute"</span>);</pre>
+</div>
+
+<h4>isMuted</h4>
+<div class="col_15">
+	Returns true or false depdending on whether the player is muted.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"isMuted"</span>);</pre>
+</div>
+
+
+<h4>Volume</h4>
+<div class="col_15">
+	Volume has two variations - getter and setter. Simply pass in "volume" to get the volume {0,100}, and pass a parameter within {0,100} to specify a new volume.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"volume"</span>);</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"volume"</span>, <span class='num'>25</span>);</pre>
+</div>
+
+
+<h4>Quality</h4>
+<div class="col_15">
+	Quality also has two variations - getter and setter. If you want to get the current quality of the player, pass in "quality" without params. If you want to set the quality, based off of the available
+	quality levels, pass that in as a string parameter.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"quality"</span>);</pre>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"quality"</span>, "medium");</pre>
+</div>
+
+<h4>Data</h4>
+<div class="col_15">
+	Typically you will want to access the information thats available from the player. The data method returns an object with the information of the player. As YouTube typically shows, you can create
+	a setInterval and use this method to retrieve the information you will want per time period. The information that is returned is: <br/>
+		bytesLoaded, bytesTotal; startBytes; state; currentTime; availableQualityLevels; the 'duration' and the 'videoURL' of the active video
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"data"</span>);</pre>
+</div>
+
+<h4>Player</h4>
+<div class="col_15">
+	Returns the YouTube Player object (the actual embedded player). This is better to use for performance in setInterval's that want to poll the player to get the duration etc. This requires that you
+	treat the 'player' object that is passed back, as the ytplayer that the YouTube API specifies. Look at the documentation for more detail.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"player"</span>);</pre>
+</div>
+
+<h4>Size</h4>
+<div class="col_15">
+	Update the size of the player. This event requires passing an object as an argument, that has the
+	width and the height specified. Note that under the hood, the player's css is updated using the object
+	specified by using jQuery().css({}), meaning that you can pass in additional CSS parameters if you wish
+	and upon size updates, the specified css changes will also be made.<br/>
+	 i.e. { width: 300, height: 200, border: "2px solid blue" }
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"size"</span>, {
+		width: <span class='num'>300</span>, 
+		height: <span class='num'>200</span>
+	});</pre>
+</div>
+
+
+<h4>Destroy</h4>
+<div class="col_15">
+	Destroy the embed (remove it), unbind evertyhing on the player container & remove local storage.
+</div>
+<div class="col_9 last">
+	<pre class="code">jQuery(<span class='string'>"#youtube-player-container"</span>)<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.tubeplayer(<span class='highlight'>"destroy"</span>);</pre>
+</div>
+
+
+
+<h2>Player event listeners</h2>
+The YouTube Player has three different event listeners subscribed: stateChange, onError and onPlaybackQualityChange. In addition to this, there is an extra
+function that you can latch on to <em>after the player is 'ready'</em>. It is recommended not to play with the stateChange, onPlaybackQualityChange or onError functions, since they have
+been setup to  trigger the various helper methods (onPlayerUnstarted, onPlayerEnded, etc).. that make the plugin so convenient. 
+<h4>$.tubeplayer.defaults.afterReady</h4>
+<div class="col_15">
+	After the play is ready (and has been completely loaded) the jQuery player object is passing into the 'afterReady' function.
+</div>
+<div class="col_9 last">
+	<pre class="code">$.tubeplayer.defaults.afterReady
+	= <span class='fn'>function</span>($player){}</pre>
+</div>
+<h4>$.tubeplayer.getPlayers()</h4>
+<div class="col_15">
+	A means to get all the players that have been instantiated.
+</div>
+<div class="col_9 last">
+	<pre class="code">$.tubeplayer.getPlayers()</pre>
+</div>
+
+<br style="clear:both;"/>
+<h2 style="clear:both;">Legal</h2>
+<p>
+	<a href="http://www.opensource.org/licenses/mit-license.php" target="_blank">
+		MIT License
+	</a>
+</p>
+		
+
+		</div>
+			<div name="tubeplayer_tutorial_4" class=" never ui-tab ui-tabs">
+				<div class="col_8">
+	<h2>File details / download</h2>
+	<h4 style="float:left;">v1.1.0</h4>
+	<dl style="float:left; margin-left: 15px;">
+		<dd><strong class='highlight'>Production</strong> - <strong class='prod_size'>8.7kB</strong> 
+			( <a href="/scripts/ui/tubeplayer/jQuery.tubeplayer.min.js" onMouseDown="log.ga.event('tubeplayer', 'download', 'min - 1.1.0');" target="_blank">Download</a> )<br/>
+			<em>Minified with Google Compiler</em></dd>
+		<br/>
+		<dd><strong class='highlight'>Development</strong> - <strong>18kB</strong> 
+			( <a href="/scripts/ui/tubeplayer/jQuery.tubeplayer.js" onMouseDown="log.ga.event('tubeplayer', 'download', 'dev - 1.1.0');" target="_blank">Download</a> )<br/>
+			<em>Commented</em> </dd>
+	</dl>
+	<br class="clear"/>
+	
+	<br/>
+	
+	<strong class='highlight'>GitHub</strong> - 
+	<a target="_blank" href="http://github.com/nirvanatikku/jQuery-TubePlayer-Plugin">
+		http://github.com/nirvanatikku/jQuery-TubePlayer-Plugin
+	</a>
+	
+	<div style="margin-top:55px;clear:both;text-align:center;"> 
+		
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="SC23WFDUU2H5A">
+		<h3 style="color:#999;">Find TubePlayer Useful?</h3><br/>
+		<a href="http://tiptheweb.org/tip/" class="ttw-button ttw-button-small" style="color:black;">Tip</a>
+<script>
+(function (window, document) {
+    var ref = document.getElementsByTagName('script')[0],
+        script = document.createElement('script'),
+        secure = window.location.protocol === 'https:';
+    script.async = true;
+    script.src = secure ? 'https://secure-platform.tiptheweb.org/tip/button.js'
+                        : 'http://platform.tiptheweb.org/tip/button.js';
+    ref.parentNode.insertBefore(script, ref);
+}(this, this.document));
+</script>
+	</form>
+	
+	</div>
+
+</div>
+<style>
+	.changelog p strong { color:#891; }
+	.ui-basic-tabs div.ui-tabs { min-height:1200px; }
+</style>
+<div class="col_16 last changelog">
+	<h2>Changelog</h2>
+	<p>
+		<strong>v1.1.0 - Oct 1, 2012</strong>
+		<dl>
+			<dd>Enabled ES5 'strict' mode</dd>
+			<dd>Stricter equality checks / improve code</dd>
+			<dd>Multiple player support - appropriate randomization by use of GUIDs</dd>
+			<dd>Fix event handler binding on the player objects (both flash based and html5 enabled) - jQuery.tubeplayer.events</dd>
+			<dd>Perform appropriate cleanup when destroying tubeplayer</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v1.0.4 - Nov 12, 2011</strong>
+		<dl>
+			<dd>Bug fixes for parsing videoID </dd>
+			<dd>Support added for 'loop' parameter and annotations (iv_load_policy)</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v1.0.3 - Aug 14th, 2011</strong>
+		<dl>
+			<dd>Added <a href="http://apiblog.youtube.com/2011/08/coming-soon-dark-player-for-embeds.html">theme and color</a> support - dark/light with red/white</dd>
+			<dd>Added 'start' attribute - default 0</dd>
+			<dd>Added 'showinfo' attribute - default false</dd>
+			<dd>Added 'modestbranding' attribute - default true</dd>
+			<dd>Updated showControls, showRelated, autoPlay and autoHide to boolean from int</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v1.0.2 - Aug 3rd, 2011</strong>
+		<dl>
+			<dd>Add support for 'autoHide' parameter</dd>
+			<dd>'loadSWFObject' attribute allows user to specify their swfobject inclusion</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v1.0.1 - May 14th, 2011</strong>
+		<dl>
+			<dd>IE 7 and 8 fixes </dd>
+			<dd>Simplify dependency by utilizing Google CDN for swfobject instead of requiring additional include</dd>
+			<dd>Added videoEmbedURL and videoID to "data" object</dd>
+			<dd>Added "videoId" convenience method</dd>
+			<dd>New onErrorInvalidParameters method to handle final error case</dd>
+			<dd>Added support for 'showControls' and 'showRelated' player attributes</dd>
+			<dd>Enhanced multiple player support for iframe/html5 player</dd>
+			<dd>New public method to get all players jQuery.tubeplayer.getPlayers() </dd>
+			<dd>Fixed unmute - uses volume before muted now</dd>
+		</dl>
+		<em>Special thanks to <a href="http://www.twitter.com/BFSmith07">@Branden Smith</a> for the first few fixes</em>
+	</p>
+	<p>
+		<strong>v1.0.0 - Feb 13th, 2011</strong>
+		<dl>
+			<dd><em>Note: This update is completely backwards compatible</em></dd>
+			<dd>Support for HTML5 - IFRAME embedded player</dd>
+			<dd>HTML5 by default now, if not supported will degrade to Flash player</dd>
+			<dd>Added 'autoplay' and 'controls' properties for player init</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v0.9.4 - Sept 5th, 2010</strong>
+		<dl>
+			<dd>New event: 'size'; Now you can modify the player's size</dd>
+			<dd>Add player 'wmode' default as transparent, to prevent z-index issues in IE (thanks <a href="http://www.danielbrouse.com" target="_blank">@Daniel Brouse</a>)</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v0.9.3 - Aug 20, 2010</strong>
+		<dl>
+			<dd>Fixed onError Handlers</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v0.9.2 - Aug 10, 2010</strong>
+		<dl>
+			<dd>Added 'player' method, to get direct access to the youtube player </dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v0.9.1 - July 30, 2010</strong>
+		<dl>
+			<dd>Multiple player support</dd>
+			<dd>Added 'onQualityChange' callback to defaults</dd>
+		</dl>
+	</p>
+	<p>
+		<strong>v0.9.0 - July 24, 2010</strong>
+		<dl>
+			<dd>Embed the API driven Flash YouTube Video Player - init/destroy</dd>
+			<dd>Control the player - cue, play, pause, stop, seek, volume control, quality control and data retreival</dd>
+			<dd>Give developer controls after each event is triggered</dd>
+			<dd>Provide developer with state change friendly events (i.e. instead of state == -1, onPlayerUnstarted)</dd>
+			<dd>Hooks for 'afterReady', 'stateChange', 'onError' and 'qualityChange' for the player</dd>
+			<dd>Convenience methods for errors - onErrorNotFound, onErrorNotEmbeddable
+			<dd>Browser support tested: Firefox 3.5+, Chrome 5, Opera 10, Safari 5, IE6+</dd>
+		</ul>
+	</p>
+</div>
+
+		</div>
+			<div name="tubeplayer_tutorial_5" class=" never ui-tab ui-tabs">
+				
+<h2>Frequently Asked Questions</h2>
+<h4>What version of jQuery is TubePlayer dependent on?</h4>
+<p>
+	jQuery 1.3.2+
+</p>
+<h4>What else is TubePlayer dependent on?</h4>
+<p>
+	SWFObject. &nbsp;&nbsp;&nbsp; As per YouTube's suggestion, the best flash embedding plugin is the <a href="http://code.google.com/p/swfobject/" target="_blank">SWFObject</a>. 
+	As a result this plugin is dependent on it. There are several reasons for this, but simply put it guarantees cross browser support, particularly in Internet Explorer. Note, with the 
+	updated support utilizing the iframe/HTML5 solution, the swfobject import is not used. However, in order to degrade the TubePlayer plugin, where HTML5 is <em>not</em> supported, 
+	the flash based player will require swfobject.
+</p>
+
+		</div>
+	</div>
+<script type="text/javascript">
+	TT.init(function(){
+		jQuery("#tubeplayer_tutorial").tabs({
+			active:1
+			});
+	});
+</script>
+
+</div>
+
+<a href="https://github.com/nirvanatikku/jQuery-TubePlayer-Plugin"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+		</div>
+				<div class="col_24 bottom">
+			<div class="col_24">
+	
+	<br/>
+		<p class="copyright"><a target="_blank" href="mailto:ntikku@gmail.com">Nirvana Tikku</a>, <a href="/">Tikku.com</a> &copy; 2010-2012</p>
+</div>
+		</div>
+		<br class="clear"/>
+	</div>
+	<div class="col_24">&nbsp;</div> </div>
+
+
+
+	<!--
+	[E:production] [T:web] [A:1] [R:5] [M:93254568] [B:MASTER_20110612_0407]
+	-->
+<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-8984274-1");pageTracker._trackPageview();} catch(e) {}</script>
+</div>	
+</body>
+</html>
