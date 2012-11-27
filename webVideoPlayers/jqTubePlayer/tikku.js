@@ -4723,9 +4723,23 @@ var swfobject = function () {
             }, {
                 id: m.playerID
             });
+
+            getCallback = (function () {
+		var id = 0;
+		return function (v) {
+			var func = $.tubeplayer.defaults.stateChange(v),
+			    name = "callback" + id;
+			id += 1;
+			eval(name + " = func;");
+//			eval(name + ' = function () { console.log("HELLO!"); }');
+			return name;
+		}
+		})();
+
             onYouTubePlayerReady = function (v) {
                 var L = document.getElementById(v);
                 i.ytplayers[v] = L;
+		L.addEventListener("onStateChange", getCallback(v));
                 L.addEventListener("onStateChange", "$.tubeplayer.defaults.stateChange('" + v + "')");
                 L.addEventListener("onError", "$.tubeplayer.defaults.onError('" + v + "')");
                 L.addEventListener("onPlaybackQualityChange", "$.tubeplayer.defaults.qualityChange('" + v + "')");
